@@ -32,5 +32,5 @@ jobs:
 
       - name: Run Colab notebook with papermill
         run: |
-          papermill your_notebook.ipynb output.ipynb  # Chạy notebook bằng papermill và lưu kết quả vào output.ipynb
+          papermill TestImg.ipynb output.ipynb  # Chạy notebook bằng papermill và lưu kết quả vào output.ipynb
   
