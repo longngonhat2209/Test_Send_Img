@@ -30,7 +30,7 @@ jobs:
         run: |
           gdown --id 12umrh2-eZmnmxQuXb4tE9ZUToO137Hhd  # Tải notebook từ Google Drive bằng gdown
 
-      - name: Run Colab Notebook
+      - name: Run Colab notebook with papermill
         run: |
           papermill your_notebook.ipynb output.ipynb  # Chạy notebook bằng papermill và lưu kết quả vào output.ipynb
   
