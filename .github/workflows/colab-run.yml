@@ -6,7 +6,7 @@ on:
       - main
   workflow_dispatch:  # Cho phép chạy thủ công từ GitHub Actions
   schedule:
-    - cron: '15 20 * * *'  # Lệnh cron để chạy tự động hàng ngày lúc 00:00 UTC
+    - cron: '30 15 * * *'  # Lệnh cron để chạy tự động hàng ngày lúc 00:00 UTC
 
 jobs:
   run_colab:
@@ -26,9 +26,11 @@ jobs:
           pip install --upgrade pip
           pip install gdown  # Hoặc các gói bạn cần để chạy Colab notebook
 
-      - name: Run Colab notebook
+      - name: Download Colab Notebook
         run: |
-          gdown --id <12umrh2-eZmnmxQuXb4tE9ZUToO137Hhd>.ipynb
-          # Hoặc chạy script Python mà bạn muốn tự động hóa
+          gdown --id 12umrh2-eZmnmxQuXb4tE9ZUToO137Hhd  # Tải notebook từ Google Drive bằng gdown
 
+      - name: Run Colab Notebook
+        run: |
+          papermill your_notebook.ipynb output.ipynb  # Chạy notebook bằng papermill và lưu kết quả vào output.ipynb
   
