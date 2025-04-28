@@ -3,8 +3,10 @@ name: Run Colab Notebook
 on:
   push:
     branches:
-      - main  # Bạn có thể thay đổi tên nhánh nếu cần
+      - main
   workflow_dispatch:  # Cho phép chạy thủ công từ GitHub Actions
+  schedule:
+    - cron: '15 20 * * *'  # Lệnh cron để chạy tự động hàng ngày lúc 00:00 UTC
 
 jobs:
   run_colab:
@@ -27,4 +29,6 @@ jobs:
       - name: Run Colab notebook
         run: |
           gdown --id <12umrh2-eZmnmxQuXb4tE9ZUToO137Hhd>.ipynb
+          # Hoặc chạy script Python mà bạn muốn tự động hóa
+
   
